@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrodel - Sua Parceira no Agronegócio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Background de Grama -->
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+    <div class="grass-blade"></div>
+
+    <!-- Tela de Carregamento -->
+    <div class="loader-container">
+        <div class="loader-content">
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <!-- Barra Superior -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Botão Toggle Menu Lateral -->
+            <button class="btn btn-menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Logo e Nome -->
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.svg" alt="Agrodel Logo" class="logo">
+                <span class="brand-name">Agrodel</span>
+            </a>
+
+            <!-- Toggle Button para Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Barra de Pesquisa -->
+                <div class="search-container mx-auto">
+                    <form class="search-input-group">
+                        <input type="search" class="search-input" placeholder="O que você procura?">
+                        <button type="submit" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Menu Secundário -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Modo Noturno -->
+                    <li class="nav-item">
+                        <button class="btn btn-theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+
+                    <!-- Perfil/Login/Criar Conta -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                            <i class="fas fa-user-plus"></i>
+                        </a>
+                    </li>
+
+                    <!-- Carrinho -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="cartButton">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge bg-success rounded-pill">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Lateral com Filtros -->
+    <div class="offcanvas offcanvas-start" id="filterSidebar">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Menu</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Animais de Produção -->
+            <div class="filter-category">
+                <button class="btn btn-toggle w-100 text-start mb-2" data-bs-toggle="collapse" data-bs-target="#filterProducao">
+                    Animais de Produção <i class="fas fa-chevron-down float-end"></i>
+                </button>
+                <div class="collapse" id="filterProducao">
+                    <div class="filter-subcategory">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="medicamentos" id="filterMedicamentos">
+                            <label class="form-check-label" for="filterMedicamentos">Medicamentos</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="nutricao" id="filterNutricao">
+                            <label class="form-check-label" for="filterNutricao">Nutrição e Suplementos</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="acessorios" id="filterAcessorios">
+                            <label class="form-check-label" for="filterAcessorios">Acessórios e Materiais</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="hormonios" id="filterHormonios">
+                            <label class="form-check-label" for="filterHormonios">Hormônios</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pets -->
+            <div class="filter-category">
+                <button class="btn btn-toggle w-100 text-start mb-2" data-bs-toggle="collapse" data-bs-target="#filterPets">
+                    Pets <i class="fas fa-chevron-down float-end"></i>
+                </button>
+                <div class="collapse" id="filterPets">
+                    <div class="filter-subcategory">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="racoes" id="filterRacoes">
+                            <label class="form-check-label" for="filterRacoes">Rações</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="medicamentosPets" id="filterMedicamentosPets">
+                            <label class="form-check-label" for="filterMedicamentosPets">Medicamentos</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="higiene" id="filterHigiene">
+                            <label class="form-check-label" for="filterHigiene">Higiene e Beleza</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="suplementos" id="filterSuplementos">
+                            <label class="form-check-label" for="filterSuplementos">Suplementos e Vitaminas</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pragas e Insetos -->
+            <div class="filter-category">
+                <button class="btn btn-toggle w-100 text-start mb-2" data-bs-toggle="collapse" data-bs-target="#filterPragas">
+                    Pragas e Insetos <i class="fas fa-chevron-down float-end"></i>
+                </button>
+                <div class="collapse" id="filterPragas">
+                    <div class="filter-subcategory">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="baraticidas" id="filterBaraticidas">
+                            <label class="form-check-label" for="filterBaraticidas">Baraticidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="cupinicidas" id="filterCupinicidas">
+                            <label class="form-check-label" for="filterCupinicidas">Cupinicidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="formicidas" id="filterFormicidas">
+                            <label class="form-check-label" for="filterFormicidas">Formicidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="herbicidas" id="filterHerbicidas">
+                            <label class="form-check-label" for="filterHerbicidas">Herbicidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="mosquicidas" id="filterMosquicidas">
+                            <label class="form-check-label" for="filterMosquicidas">Mosquicidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="raticidas" id="filterRaticidas">
+                            <label class="form-check-label" for="filterRaticidas">Raticidas</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="outros" id="filterOutros">
+                            <label class="form-check-label" for="filterOutros">Outros</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Bem-vindo à Agrodel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-3">
+                        <button class="btn btn-google w-100">
+                            <i class="fab fa-google"></i> Entrar com Google
+                        </button>
+                        <button class="btn btn-facebook w-100">
+                            <i class="fab fa-facebook"></i> Entrar com Facebook
+                        </button>
+                    </div>
+                    <div class="divider my-4 text-center">
+                        <span class="px-3 bg-white text-muted">ou</span>
+                    </div>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Seu email">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Senha</label>
+                            <input type="password" class="form-control" placeholder="Sua senha">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cadastro -->
+    <div class="modal fade" id="registerModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Criar Conta na Agrodel</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-grid gap-3">
+                        <button class="btn btn-google w-100">
+                            <i class="fab fa-google"></i> Cadastrar com Google
+                        </button>
+                        <button class="btn btn-facebook w-100">
+                            <i class="fab fa-facebook"></i> Cadastrar com Facebook
+                        </button>
+                    </div>
+                    <div class="divider my-4 text-center">
+                        <span class="px-3 bg-white text-muted">ou</span>
+                    </div>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nome Completo</label>
+                            <input type="text" class="form-control" placeholder="Seu nome completo" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Seu email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Senha</label>
+                            <input type="password" class="form-control" placeholder="Sua senha" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Confirmar Senha</label>
+                            <input type="password" class="form-control" placeholder="Confirme sua senha" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Criar Conta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal do Carrinho -->
+    <div class="modal fade" id="cartModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Meu Carrinho</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems" class="mb-4">
+                        <!-- Items do carrinho serão inseridos aqui -->
+                    </div>
+                    <div class="cart-summary border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Subtotal:</span>
+                            <span id="cartSubtotal">R$ 0,00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Frete:</span>
+                            <span id="cartShipping">Calcular</span>
+                        </div>
+                        <div class="d-flex justify-content-between h5">
+                            <span>Total:</span>
+                            <span id="cartTotal">R$ 0,00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar Comprando</button>
+                    <button type="button" class="btn btn-primary" id="checkoutButton">Finalizar Compra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Barra Lateral de Categorias -->
+    <div class="offcanvas offcanvas-start" id="categoriesMenu">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Categorias</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group">
+                <li class="list-group-item">Rações</li>
+                <li class="list-group-item">Arames e Ferragens</li>
+                <li class="list-group-item">Pragas e Insetos</li>
+                <li class="list-group-item">Pets</li>
+                <li class="list-group-item">Veterinária</li>
+                <li class="list-group-item">Pecuária</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mt-5 pt-5">
+        <!-- Produtos em Destaque -->
+        <section class="featured-products mb-5 fade-in">
+            <h2>Produtos em Destaque</h2>
+            <div class="row">
+                <!-- Produtos serão inseridos dinamicamente via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Promoções -->
+        <section class="promotions mb-5 fade-in">
+            <h2>Ofertas Especiais</h2>
+            <div class="row">
+                <!-- Promoções serão inseridas dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Novidades -->
+        <section class="new-products mb-5 fade-in">
+            <h2>Chegou na Agrodel</h2>
+            <div class="row">
+                <!-- Novidades serão inseridas dinamicamente -->
+            </div>
+        </section>
+
+        <!-- Produtos Recomendados -->
+        <section class="recommended-products mb-5 fade-in">
+            <h2>Produtos Recomendados</h2>
+            <div class="row" id="recommendedProducts">
+                <!-- Produtos serão inseridos dinamicamente via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Cuidados com Pets -->
+        <section class="pet-care mb-5 fade-in">
+            <h2>Cuidados com seu Pet</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Dicas e Cuidados Essenciais</h5>
+                            <p class="card-text">Confira nossas dicas para manter seu pet saudável e feliz. Aprenda sobre alimentação adequada, cuidados diários e muito mais.</p>
+                            <a href="pet-care.html" class="btn btn-primary" target="_blank">Ver Mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-5">
+        <div class="container py-4">
+            <div class="row g-4">
+                <!-- Atendimento -->
+                <div class="col-md-3">
+                    <h5>Atendimento</h5>
+                    <p><i class="far fa-clock me-2"></i>Segunda a Sexta: 8h às 18h</p>
+                    <p><i class="fas fa-phone me-2"></i>(83) 99170-8536</p>
+                    <p><i class="far fa-envelope me-2"></i>sac@agrodel.com.br</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>Rua José Amancio Ramalho, 299 - Solânea, Paraíba, CEP 58220-000</p>
+                </div>
+
+                <!-- Sobre -->
+                <div class="col-md-3">
+                    <h5>Sobre a Agrodel</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light"><i class="fas fa-chevron-right me-2"></i>Sobre Nós</a></li>
+                        <li><a href="#" class="text-light"><i class="fas fa-chevron-right me-2"></i>Avaliações</a></li>
+                        <li><a href="como-comprar.html" target="_blank" class="text-light"><i class="fas fa-chevron-right me-2"></i>Como Comprar</a></li>
+                    </ul>
+                </div>
+
+                <!-- Redes Sociais -->
+                <div class="col-md-3">
+                    <h5>Redes Sociais</h5>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/agrodelsolanea/" target="_blank" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/83991708536" target="_blank" class="text-light"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Pagamento -->
+                <div class="col-md-3">
+                    <h5>Formas de Pagamento</h5>
+                    <div class="payment-icons">
+                        <i class="fab fa-pix"></i>
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informações Legais -->
+            <div class="row mt-4 pt-3 border-top">
+                <div class="col-12 text-center">
+                    <p class="mb-1">Agrodel LTDA - CNPJ: 35.430.669/0001-06</p>
+                    <p class="mb-1">Rua José Amancio Ramalho, 299 - Solânea, Paraíba, CEP 58220-000</p>
+                    <p class="mb-1">Empresa desde 1990 - Tradição e qualidade no agronegócio</p>
+                    <p class="mb-0">© 2024 Agrodel - Todos os direitos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

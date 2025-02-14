@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+    <!-- Fundo circular com gradiente -->
+    <defs>
+        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2E7D32"/>
+            <stop offset="100%" style="stop-color:#4CAF50"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Círculo de fundo -->
+    <circle cx="100" cy="40" r="35" fill="url(#logoGradient)" opacity="0.1"/>
+    
+    <!-- Letra A -->
+    <path d="M70 60L85 20L100 60H90L87 52H83L80 60H70ZM84 45L85 42L86 45H84Z" 
+          fill="#2E7D32" 
+          stroke="#2E7D32" 
+          stroke-width="1"/>
+    
+    <!-- Letra D -->
+    <path d="M110 20H125C135 20 140 30 140 40C140 50 135 60 125 60H110V20ZM120 30V50H125C128 50 130 45 130 40C130 35 128 30 125 30H120Z" 
+          fill="#4CAF50" 
+          stroke="#4CAF50" 
+          stroke-width="1"/>
+</svg> 
