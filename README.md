@@ -86,10 +86,6 @@ Para mais informações, entre em contato:
 - Email: contato@agrodel.com.br
 - Telefone: (XX) XXXX-XXXX
 
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
 ---
 
 Desenvolvido com ❤️ para Agrodel
